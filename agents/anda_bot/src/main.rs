@@ -588,10 +588,10 @@ fn connect_model(cfg: &config::Llm) -> Result<Model, BoxError> {
     } else {
         let cli = openai::Client::new(
             &cfg.openai_api_key,
-            if cfg.deepseek_endpoint.is_empty() {
+            if cfg.openai_endpoint.is_empty() {
                 None
             } else {
-                Some(cfg.deepseek_endpoint.clone())
+                Some(cfg.openai_endpoint.clone())
             },
         );
         Ok(Model::new(
